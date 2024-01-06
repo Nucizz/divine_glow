@@ -8,7 +8,7 @@ export default function AboutUs() {
         <>
             <Navbar active={2} />
 
-            <div className="w-screen flex flex-col gap-12 py-16">
+            <div className="w-screen flex flex-col gap-12 py-20">
 
                 <CarouselBanner />
 
@@ -71,7 +71,7 @@ function Information() {
 
             <div className="flex md:flex-row flex-col gap-12 justify-evenly items-center mx-8 md:mx-20 lg:mx-0">
 
-                <img src={logo} className="lg:w-1/5 md:w-1/3 w-2/3 invert" />
+                <img src={logo} alt="logo" className="lg:w-1/5 md:w-1/3 w-2/3 invert" />
 
                 <p className="opacity-80 text-sm lg:text-base text-justify lg:w-3/5 md:w-2/3 w-full">
                     <AboutUsText />

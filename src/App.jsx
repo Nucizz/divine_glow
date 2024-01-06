@@ -1,5 +1,5 @@
 import {
-  HashRouter as Router,
+  HashRouter,
   Routes,
   Route,
   Navigate,
@@ -8,14 +8,22 @@ import {
 import Home from "./Pages/Home";
 import Product from "./Pages/Product";
 import AboutUs from "./Pages/AboutUs";
+import ProductDetails from "./Pages/ProductDetails";
 
 export default function App() {
   return (
-    <Router>
+    <HashRouter>
       <Routes>
 
         <Route
           path="/"
+          element={
+            <Navigate to="/home" />
+          }
+        />
+
+        <Route
+          path="*"
           element={
             <Navigate to="/home" />
           }
@@ -39,7 +47,12 @@ export default function App() {
             <AboutUs />
           } />
 
+        <Route
+          path="/product/:productName"
+          element={<ProductDetails />}
+        />
+
       </Routes>
-    </Router>
+    </HashRouter>
   );
 }

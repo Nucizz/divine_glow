@@ -2,10 +2,11 @@ import Navbar from "../Components/Navbar";
 import Hero from "../Assets/Hero.webp";
 import logoText from "../Assets/Divine Glow Logo Text.png";
 import ArrowCircleRightRoundedIcon from '@mui/icons-material/ArrowCircleRightRounded';
+import { Link } from "react-router-dom";
 
 export default function Home() {
     return (
-        <>
+        <div className="overflow-y-hidden">
             <Navbar active={0} transparent={true} />
 
             <div className="w-screen h-screen relative">
@@ -18,15 +19,15 @@ export default function Home() {
                 <div className="absolute w-full h-full bg-black/65 z-20 flex flex-col items-center justify-evenly">
                     <img src={logoText} className="h-1/3 w-3/4 object-contain" alt="logo" />
 
-                    <a
+                    <Link
                         className="text-white font-semibold border-2 flex flex-row items-center border-white px-4 py-2 rounded-xl transition-all duration-300 bg-primary-hover hover:border-transparent pointer-cursor"
-                        href="/product"
+                        to="/product"
                     >
                         Lihat Produk
                         <ArrowCircleRightRoundedIcon className="ml-2" />
-                    </a>
+                    </Link>
                 </div>
             </div>
-        </>
+        </div>
     );
 }
