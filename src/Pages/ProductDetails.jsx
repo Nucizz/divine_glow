@@ -6,7 +6,6 @@ import ImageNotSupportedRoundedIcon from "@mui/icons-material/ImageNotSupportedR
 import ForestRoundedIcon from "@mui/icons-material/ForestRounded";
 import ChairRoundedIcon from "@mui/icons-material/ChairRounded";
 import { WhatsApp } from "@mui/icons-material";
-import { Divider } from "@mui/material";
 import {
     Table,
     TableBody,
@@ -60,7 +59,7 @@ export default function ProductDetails() {
 function MainInformation({ data }) {
     return (
         <div className="w-full flex flex-col md:flex-row items-center justify-center md:items-start md:justify-start gap-5">
-            <CarouselThumbnail images={data.images} />
+            <CarouselThumbnail name={data.name} count={data.imageCount} />
 
             <div className="flex flex-col gap-5 items-center justify-center md:items-start md:justify-start">
                 <div className="font-bold text-black text-xl md:text-3xl lg:text-5xl">
@@ -86,9 +85,7 @@ function MainInformation({ data }) {
                         ) : (
                             <ForestRoundedIcon />
                         )}
-                        <span className="font-semibold">
-                            {data.operatingEnvironment}
-                        </span>
+                        <span className="font-semibold">{data.operatingEnvironment}</span>
                     </div>
                 </div>
 
@@ -108,7 +105,33 @@ function MainInformation({ data }) {
     );
 }
 
-function CarouselThumbnail({ images }) {
+function CarouselThumbnail({ name, count }) {
+    const images = [];
+
+    const loadThumbnail = (index, format) => {
+        try {
+            return require(`../Assets/Products/${name}/${index}.${format}`);
+        } catch (error) {
+            return null;
+        }
+    };
+
+    for (let index = 1; index <= count; index++) {
+        const thumbnail =
+            loadThumbnail(index, "png") || loadThumbnail(index, "jpg") || loadThumbnail(index, "svg");
+
+        if (thumbnail) {
+            images.push(
+                <img
+                    key={index}
+                    src={thumbnail}
+                    alt={`Thumbnail ${index}`}
+                    className="w-full h-full object-contain bg-gray-800"
+                />
+            );
+        }
+    }
+
     if (images.length > 0) {
         return (
             <Carousel
@@ -118,13 +141,7 @@ function CarouselThumbnail({ images }) {
                 loop={true}
                 autoplayDelay={4000}
             >
-                {images.map((image, index) => (
-                    <img
-                        src={image}
-                        alt={`Thumbnail ${index + 1}`}
-                        className="w-full h-full object-contain bg-gray-800"
-                    />
-                ))}
+                {images}
             </Carousel>
         );
     } else {

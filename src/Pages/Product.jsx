@@ -85,11 +85,25 @@ function ProductList({ filterRef }) {
 
 function ProductItem({ data }) {
     const productDetailLink = `/product/${encodeURIComponent(data.name)}`;
+
+    const loadThumbnail = (format) => {
+        try {
+          return require(`../Assets/Products/${data.name}/1.${format}`);
+        } catch (error) {
+          return null;
+        }
+    };
+    
+    const thumbnail = loadThumbnail('png') || loadThumbnail('jpg') || loadThumbnail("svg");
+
     return (
-        <Link to={productDetailLink} className="rounded-xl flex flex-col border border-gray-300 cursor-pointer hover:brightness-50 transition-all duration-300">
-            {data.images[0] ? (
+        <Link
+            to={productDetailLink}
+            className="rounded-xl flex flex-col border border-gray-300 cursor-pointer hover:brightness-50 transition-all duration-300"
+        >
+            {data.imageCount > 0 && thumbnail ? (
                 <img
-                    src={data.images[0]}
+                    src={thumbnail}
                     alt="thumbnail"
                     className="w-full h-48 bg-gray-500 rounded-t-xl object-cover"
                 />
@@ -105,4 +119,3 @@ function ProductItem({ data }) {
         </Link>
     );
 }
-

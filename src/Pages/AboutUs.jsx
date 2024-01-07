@@ -32,7 +32,7 @@ function CarouselBanner() {
             {carouselData.map((item, index) => (
                 <div className="w-full h-full relative" key={index}>
                     <img
-                        src={item.image}
+                        src={require(`../Assets/Carousel/${index + 1}.png`)}
                         alt={`Carousel data ${index + 1}`}
                         className="w-full min-h-64 lg:min-h-0 h-full object-cover"
                     />

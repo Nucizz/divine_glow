@@ -1,45 +1,25 @@
-import carouselImg_1 from "../Assets/Carousel/1.png";
-import carouselImg_2 from "../Assets/Carousel/2.png";
-import carouselImg_3 from "../Assets/Carousel/3.png";
-import carouselImg_4 from "../Assets/Carousel/4.png";
-
-import mockupImg_1 from "../Assets/Mockups/1.png";
-import mockupImg_2 from "../Assets/Mockups/2.png";
-import mockupImg_3 from "../Assets/Mockups/3.png";
-import mockupImg_4 from "../Assets/Mockups/4.png";
-
-import VISTROPixel125mmIndoor1 from "../Assets/Products/VISTRO Pixel 1.25mm Indoor/1.png"
-import VISTROPixel125mmIndoor2 from "../Assets/Products/VISTRO Pixel 1.25mm Indoor/2.png"
-import VISTROPixel125mmIndoor3 from "../Assets/Products/VISTRO Pixel 1.25mm Indoor/3.png"
-
 export const carouselData = [
     {
-        image: carouselImg_1,
         title: "Menerangi Masa Depan",
         description:
             "Kami di Divine Glow membayangkan sebuah masa depan yang menerangi setiap acara dengan layar LED Videotron mutakhir. Bergabunglah dengan kami dalam menciptakan pengalaman visual tak terlupakan.",
     },
     {
-        image: carouselImg_2,
         title: "Mengungkap Teknologi Unggul",
         description:
             "Divine Glow hadir dengan layar LED Videotron terbaik, menciptakan pengalaman visual superior dan kualitas tak tertandingi. Temukan keunggulan teknologi bersama kami.",
     },
     {
-        image: carouselImg_3,
         title: "Visi Anda, Prioritas Kami",
         description:
             "Kami di Divine Glow memahami bahwa kesuksesan kami terletak pada kesuksesan Anda. Tim kami siap bekerja sama untuk menjadikan setiap proyek, dari billboard hingga panggung, sesuai dengan visi kreatif Anda.",
     },
     {
-        image: carouselImg_4,
         title: "Membentuk Hari Esok yang Lebih Cerah",
         description:
             "Divine Glow tidak hanya memberikan kinerja luar biasa, tetapi juga berkomitmen pada keberlanjutan. Bergabunglah dengan kami dalam perjalanan menuju teknologi yang bertanggung jawab untuk masa depan yang lebih hijau.",
     },
 ];
-
-export const mockupImage = [mockupImg_1, mockupImg_2, mockupImg_3, mockupImg_4];
 
 export const AboutUsText = () => {
     return (
@@ -101,11 +81,7 @@ export const productData = [
             minimum: 600,
             maximum: 600,
         },
-        images: [
-            VISTROPixel125mmIndoor1,
-            VISTROPixel125mmIndoor2,
-            VISTROPixel125mmIndoor3,
-        ]
+        imageCount: 3,
     },
     {
         name: "VISTRO Pixel 1.53mm Indoor",
@@ -142,9 +118,7 @@ export const productData = [
             minimum: 600,
             maximum: 600,
         },
-        images: [
-
-        ]
+        imageCount: 3,
     },
     {
         name: "VISTRO Pixel 1.86mm Indoor",
@@ -185,9 +159,7 @@ export const productData = [
             minimum: 600,
             maximum: 600,
         },
-        images: [
-
-        ]
+        imageCount: 3,
     },
     {
         name: "VISTRO Pixel 2mm Indoor",
@@ -224,9 +196,7 @@ export const productData = [
             minimum: 600,
             maximum: 600,
         },
-        images: [
-
-        ]
+        imageCount: 3,
     },
     {
         name: "VISTRO Pixel 2.5mm Indoor",
@@ -267,9 +237,7 @@ export const productData = [
             minimum: 600,
             maximum: 600,
         },
-        images: [
-
-        ]
+        imageCount: 3,
     },
     {
         name: "VISTRO Pixel 2.6mm Indoor",
@@ -306,9 +274,7 @@ export const productData = [
             minimum: 700,
             maximum: 700,
         },
-        images: [
-
-        ]
+        imageCount: 3,
     },
     {
         name: "VISTRO Pixel 3mm Indoor",
@@ -345,9 +311,7 @@ export const productData = [
             minimum: 800,
             maximum: 800,
         },
-        images: [
-
-        ]
+        imageCount: 3,
     },
     {
         name: "VISTRO Pixel 3.07mm Indoor",
@@ -388,9 +352,7 @@ export const productData = [
             minimum: 800,
             maximum: 800,
         },
-        images: [
-
-        ]
+        imageCount: 3,
     },
     {
         name: "VISTRO Pixel 3.91mm Indoor",
@@ -427,9 +389,7 @@ export const productData = [
             minimum: 1200,
             maximum: 1200,
         },
-        images: [
-
-        ]
+        imageCount: 3,
     },
     {
         name: "VISTRO Pixel 4mm Indoor",
@@ -466,8 +426,6 @@ export const productData = [
             minimum: 1200,
             maximum: 1200,
         },
-        images: [
-
-        ]
+        imageCount: 3,
     },
 ];
