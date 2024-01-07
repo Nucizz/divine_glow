@@ -3,21 +3,30 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import FilterListRoundedIcon from "@mui/icons-material/FilterListRounded";
 import ImageNotSupportedRoundedIcon from "@mui/icons-material/ImageNotSupportedRounded";
+
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { productData } from "../Class/Data";
 
 export default function Product() {
     const [filter, setFilter] = useState(null);
+    const [search, setSearch] = useState('');
 
     return (
         <>
             <Navbar active={1} />
 
             <div className="w-screen h-screen flex flex-col justify-start items-start gap-5 text-white py-20 px-6">
-                <FilterButton setFilterRef={setFilter} />
 
-                <ProductList filterRef={filter} />
+                <div className="flex flex-row items-center justify-left w-full gap-5 mt-4 w-full">
+
+                    <FilterButton setFilterRef={setFilter} />
+
+                    <SearchBar setSearchRef={setSearch} searchRef={search} />
+
+                </div>
+
+                <ProductList filterRef={filter} searchRef={search} />
             </div>
         </>
     );
@@ -47,7 +56,7 @@ function FilterButton({ setFilterRef }) {
                 aria-haspopup="true"
                 aria-expanded={open ? "true" : undefined}
                 onClick={handleClick}
-                className="flex flex-row gap-2 items-center justify-center text-gray-800 hover:text-gray-500 font-bold rounded-xl transition duration-300 pt-4"
+                className="flex flex-row gap-2 items-center justify-center text-gray-800 hover:text-gray-500 font-bold rounded-xl transition duration-300"
             >
                 <FilterListRoundedIcon />
                 Filter
@@ -69,14 +78,33 @@ function FilterButton({ setFilterRef }) {
     );
 }
 
-function ProductList({ filterRef }) {
+function SearchBar({ setSearchRef, searchRef }) {
+    return (
+        <input 
+            placeholder="Cari Produk"
+            type="text"
+            id="search"
+            onChange={(event) => setSearchRef(event.target.value)}
+            value={searchRef}
+            className="w-full sm:w-1/2 md:w-1/3 lg:w-1/5 cursor-pointer bg-gray-300 border-0 py-2 px-4 rounded-xl text-black focus:outline-none focus:ring-0 appearance-none"
+        />
+    );
+}
+
+function ProductList({ filterRef, searchRef }) {
     const filteredProduct = filterRef
         ? productData.filter((item) => item.operatingEnvironment === filterRef)
         : productData;
 
+    const searchedProduct = searchRef
+        ? filteredProduct.filter((item) =>
+              item.name.toLowerCase().includes(searchRef.toLowerCase())
+          )
+        : filteredProduct;
+
     return (
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 w-full pb-20">
-            {filteredProduct.map((item) => (
+            {searchedProduct.sort((a, b) => a.pixelPitch - b.pixelPitch).map((item) => (
                 <ProductItem data={item} />
             ))}
         </div>

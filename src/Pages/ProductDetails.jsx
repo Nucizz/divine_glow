@@ -6,6 +6,7 @@ import ImageNotSupportedRoundedIcon from "@mui/icons-material/ImageNotSupportedR
 import ForestRoundedIcon from "@mui/icons-material/ForestRounded";
 import ChairRoundedIcon from "@mui/icons-material/ChairRounded";
 import { WhatsApp } from "@mui/icons-material";
+import { useEffect } from "react";
 import {
     Table,
     TableBody,
@@ -16,6 +17,10 @@ import {
 } from "@mui/material";
 
 export default function ProductDetails() {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     const { productName } = useParams();
     const decodedProductName = decodeURIComponent(productName);
     const product = productData.find((item) => item.name === decodedProductName);
@@ -96,6 +101,8 @@ function MainInformation({ data }) {
                         data.name +
                         " masih tersedia?"
                     }
+                    target="_blank"
+                    rel="noopener noreferrer"
                 >
                     <WhatsApp />
                     <span>Tanya Tentang Produk</span>
@@ -118,7 +125,9 @@ function CarouselThumbnail({ name, count }) {
 
     for (let index = 1; index <= count; index++) {
         const thumbnail =
-            loadThumbnail(index, "png") || loadThumbnail(index, "jpg") || loadThumbnail(index, "svg");
+            loadThumbnail(index, "png") ||
+            loadThumbnail(index, "jpg") ||
+            loadThumbnail(index, "svg");
 
         if (thumbnail) {
             images.push(
@@ -232,7 +241,7 @@ function InformationTable({ data }) {
     };
 
     return (
-        <TableContainer className="border rounded-xl border-gray-300">
+        <TableContainer className="border rounded-xl border-gray-300 mt-5">
             <Table>
                 <TableBody>
                     {Object.entries(data).map(([key, value]) => {
