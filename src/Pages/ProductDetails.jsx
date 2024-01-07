@@ -245,7 +245,7 @@ function InformationTable({ data }) {
             <Table>
                 <TableBody>
                     {Object.entries(data).map(([key, value]) => {
-                        if (key !== "name" && key !== "images") {
+                        if (key !== "name" && key !== "imageCount") {
                             return (
                                 <TableRow key={key}>
                                     <TableCell component="th" scope="row">
