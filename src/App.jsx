@@ -1,5 +1,5 @@
 import {
-  BrowserRouter,
+  HashRouter,
   Routes,
   Route,
   Navigate,
@@ -12,7 +12,7 @@ import ProductDetails from "./Pages/ProductDetails";
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
 
         <Route
@@ -53,6 +53,6 @@ export default function App() {
         />
 
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
