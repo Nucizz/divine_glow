@@ -5,6 +5,9 @@ import {
   Navigate,
 } from "react-router-dom";
 
+// git push -> Nucizz
+// git push deploy -> Jumpbeeid
+
 import Home from "./Pages/Home";
 import Product from "./Pages/Product";
 import AboutUs from "./Pages/AboutUs";
